@@ -7,30 +7,29 @@ function Header() {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          title,
+          contact_phone
         }
       }
     }
   `);
 
+  const isActive = ({ isCurrent }) => {
+    return isCurrent ? { className: "font-bold text-yellow-300 ml-6" } : {}
+  }
+
   return (
-    <header className="bg-green-700">
-      <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8">
+    <header className="bg-gray-900">
+      <div className="flex flex-wrap items-center justify-between max-w-6xl p-4 mx-auto md:p-8">
         <Link to="/">
-          <h1 className="flex items-center text-white no-underline">
-            <svg
-              className="w-8 h-8 mr-2 fill-current"
-              height="54"
-              viewBox="0 0 54 54"
-              width="54"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-            </svg>
-            <span className="text-xl font-bold tracking-tight">
+          <div className="flex align-baseline">
+          <h1 className="flex items-center text-yellow-300 no-underline text-3xl">
+            <span className="text-3xl font-bold tracking-tight">
               {site.siteMetadata.title}
             </span>
           </h1>
+          <p className="flex text-white no-underline items-end">{site.siteMetadata.contact_phone}</p>
+          </div>
         </Link>
 
         <button
@@ -54,8 +53,24 @@ function Header() {
         >
           {[
             {
-              route: `/about`,
-              title: `About`,
+              route: `/`,
+              title: `Accueil`,
+            },
+            {
+              route: `/fissure`,
+              title: `Réparation de fissure`,
+            },
+            {
+              route: `/scellant`,
+              title: `Application de scellant`,
+            },
+            {
+              route: `/reparation`,
+              title: `Réparation d'asphalte`,
+            },
+            {
+              route: `/soumission`,
+              title: `Soumission`,
             },
             {
               route: `/contact`,
@@ -66,6 +81,7 @@ function Header() {
               className="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6"
               key={link.title}
               to={link.route}
+              getProps={isActive}
             >
               {link.title}
             </Link>
