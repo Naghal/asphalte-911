@@ -8,9 +8,12 @@ const path = require(`path`)
 module.exports = {
   siteMetadata: {
     title: `Asphalte-911`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    description: `Asphalte-911`,
+    author: `@anthonyduhaime`,
     contact_phone: `819-692-6788`
+  },
+  flags: {
+    DEV_SSR: true
   },
   plugins: [
     `gatsby-plugin-eslint`,
@@ -24,7 +27,7 @@ module.exports = {
         background_color: fullConfig.theme.colors.white,
         theme_color: fullConfig.theme.colors.gray["800"],
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`,
+        icon: `src/images/logo-icon.png`,
       },
     },
     {
@@ -50,5 +53,13 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-9WBQZ350M0",
+        ],
+      },
+    },
   ],
 };

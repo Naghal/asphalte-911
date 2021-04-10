@@ -69,10 +69,6 @@ function Header() {
               title: `Réparation d'asphalte`,
             },
             {
-              route: `/soumission`,
-              title: `Soumission`,
-            },
-            {
               route: `/contact`,
               title: `Contact`,
             },

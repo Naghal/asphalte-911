@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "@fontsource/maven-pro"
+import "@fontsource/open-sans"
 
 import Header from "./header";
 

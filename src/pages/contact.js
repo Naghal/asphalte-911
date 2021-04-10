@@ -16,8 +16,8 @@ function ContactPage() {
       <section>
         <ContactHeader />
         <div className="flex flex-col 2xl:flex-row">
-          <div className="w-full md:w-2/3 2xl:w-1/3  mt-4 p-4">
-            <form>
+          <div className="w-full md:w-2/3 2xl:w-1/3  mt-4 p-4 flex align-end">
+            <form className="w-full flex flex-col" method="post" action="https://getform.io/f/56a11a74-5acd-4cc9-8cec-ee9f7d8b0fab">
 
               <label
                 className="block mb-2 text-xs font-bold uppercase"
@@ -28,35 +28,35 @@ function ContactPage() {
 
               <input
                 className="w-full mb-6 rounded-md border-gray-800"
-                id="fullname"
+                name="name"
                 placeholder=""
                 type="text"
               />
 
               <label
                 className="block mb-2 text-xs font-bold uppercase"
-                htmlFor="fullname"
+                htmlFor="email"
               >
                 Courriel
               </label>
 
               <input
                 className="w-full mb-6 rounded-md border-gray-800"
-                id="email"
+                name="email"
                 placeholder=""
                 type="text"
               />
 
               <label
                 className="block mb-2 text-xs font-bold uppercase"
-                htmlFor="fullname"
+                htmlFor="phone"
               >
                 Téléphone
               </label>
 
               <input
                 className="w-full mb-6 rounded-md border-gray-800"
-                id="email"
+                name="phone"
                 placeholder="Optionnel"
                 type="text"
               />
@@ -71,7 +71,7 @@ function ContactPage() {
 
               <textarea
                 className="w-full mb-6 rounded-md border-gray-800"
-                id="message"
+                name="message"
                 placeholder=""
                 rows="8"
               />
@@ -81,12 +81,16 @@ function ContactPage() {
               </button>
             </form>
           </div>
-          <div className="w-1/3 mt-4 p-4 2xl:w-2/3">
-            Heures d&apos;ouverture
+          <div className="w-full">
+            <div className="xl:w-1/3 mt-4 p-4 2xl:w-2/3">
+              <b>Heures d&apos;ouverture</b><br></br>
+              Nous sommes ouvert 7 jours sur 7 de 8h à 20h.
+            </div>
+            <div className="w-full">
+              <div className="hidden md:block"><StaticImage src="../images/large_map.png" alt="Carte" layout="constrained" quality={100} height={800} /></div>
+              <div className="md:hidden"><StaticImage src="../images/map.png" alt="Carte" layout="constrained" quality={100} height={800} /></div>
+            </div>
           </div>
-        </div>
-        <div className="w-2/3 h-36">
-          <StaticImage src="../images/large_map.png" alt="Carte" height={400} />
         </div>
       </section>
     </Layout>

@@ -2,24 +2,10 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-
-import { graphql, useStaticQuery } from "gatsby"
-import Img from 'gatsby-image'
+import { StaticImage } from "gatsby-plugin-image";
 
 function ScellantPage() {
-  const data = useStaticQuery(graphql`
-  query {
-    scellantApplictionImage: file(relativePath: { eq: "application_scellant.jpg" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fluid(maxHeight: 480) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`);
+
   return (
     <Layout>
       <SEO
@@ -40,7 +26,7 @@ function ScellantPage() {
               Le Black Mac est un scellant au bitume à base de pétrole. Le bitume est l&apos;élément liquide qui sert à regrouper la roche et le sable pour former l&apos;élément appelé asphalte. 
             </p>
             <div className="text-center p-4">
-              <Img fluid={data.scellantApplictionImage.childImageSharp.fluid} className="rounded-lg" alt="Application de scellant"/>
+              <StaticImage src="../images/application_scellant.jpg" layout="fullWidth" placeholder="blurred"></StaticImage>
               <small className="text-gray-500"> Application de scellant</small>
             </div>
             <p>
